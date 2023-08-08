@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset = "utf-8">
+      <style>
+         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+         body {
+            margin: 0;
+            height: 100%;
+            background-color: #d3d3d3;
+            /*background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;*/
+         }
+         .setting{
+            margin-top: 50px;
+            text-align: center;
+            font-family: 'Nanum Gothic', sans-serif;
+         }
+         .naming{
+            margin-left: 30px;
+            width: 120px;
+            height: 50px;
+            color: white;
+            border-radius: 5px;
+            border-color: 2px solid black;
+            background-color: #ff7f00;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 20px;
+            border: none;
+         }
+         .main_frame{
+            margin-top: 50px;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 4fr;
+            font-size: 20px;
+            text-align: center;
+            font-family: 'Nanum Gothic', sans-serif;
+            align-items: center;
+         }
+         .mainplace{
+            margin-bottom: 50px;
+            display: grid;
+            grid-gap: 1px;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            text-align: center;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 18px;
+            align-items: center;
+         }
+         #round{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            text-align: center;
+            font-family: 'Nanum Gothic', sans-serif;
+         }
+         .coin{
+            border-bottom: 2px solid black;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            text-align: center;
+            font-family: 'Nanum Gothic', sans-serif;
+            margin-top: 20px;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-bottom: 20px;
+         }
+         #name_writing{
+            height: 50px;
+            border-radius: 5px;
+            display: inline-block;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 20px;
+         }
+         .legend{
+            margin-left: 10px; 
+            margin-right: 10px; 
+            height: 60px;
+            line-height: 60px;
+            color: #374999;
+            border: 5px solid #374999;
+            background-color: white;
+            border-radius: 10px;
+         }
+         .player_list{
+            height: 70%;
+            width: 90%;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 20px;
+            color: black;
+            background-color: #d3d3d3;
+            border: 2px solid black;
+            margin: 0 auto;
+         }
+         .compute{
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            font-size: 40px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            color: white;
+            transition: 0.2s;
+            &::before {
+               content: '';
+               height: 3px;
+               width: 0;
+               left: 0;
+               bottom: 0;
+               position: absolute;
+               background: white;
+               transition: 0.4s;
+            }
+            &:hover {
+               &::before {
+                  width: 100%;
+               }
+            }
+            &:active {
+               background-color: rgba(255,255,255,.1);
+            }
+         }
+         .auction_1{
+            color: #155799;
+            font-family: 'Nanum Gothic', sans-serif;
+            cursor: pointer;
+            border: 2px solid#155799;
+            background: white;
+            position: relative;
+            width: 100px;
+            height: 60px;
+            font-size: 20px;
+            transition: 0.5s;
+            &:focus {
+               background-color: #155799;
+               color: white;
+            }
+         }
+         .auction_2{
+            color: #F2994A;
+            font-family: 'Nanum Gothic', sans-serif;
+            cursor: pointer;
+            border: 2px solid#F2994A;
+            background: white;
+            position: relative;
+            width: 100px;
+            height: 60px;
+            font-size: 20px;
+            transition: 0.5s;
+            &:focus {
+               background-color: #F2994A;
+               color: white;
+            }
+         }
+         .auction_3{
+            color: #159957;
+            font-family: 'Nanum Gothic', sans-serif;
+            cursor: pointer;
+            border: 2px solid#159957;
+            background: white;
+            position: relative;
+            width: 100px;
+            height: 60px;
+            font-size: 20px;
+            transition: 0.5s;
+            &:focus {
+               background-color: #159957;
+               color: white;
+            }
+         }
+         .auction_4{
+            color: #C33764;
+            font-family: 'Nanum Gothic', sans-serif;
+            cursor: pointer;
+            border: 2px solid#C33764;
+            background: white;
+            position: relative;
+            width: 100px;
+            height: 60px;
+            font-size: 20px;
+            transition: 0.5s;
+            &:focus {
+               background-color: #C33764;
+               color: white;
+            }
+         }
+         .blank{
+            border: 2px solid black;
+            margin: 0 auto;
+            line-height: 50px;
+            color: white;
+            transition: 1s;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 40px;
+         }
+         .coin_own{
+            border-bottom: 2px solid black;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            text-align: center;
+            font-family: 'Nanum Gothic', sans-serif;
+            margin-top: 20px;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-bottom: 20px;
+         }
+         .coin_wealth{
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 24px;
+            transition: 1s;
+         }
+      </style>
+      <title>Chain Auction</title>
+   </head>
+   <body>
+      <div class="setting">
+         <input id="name_writing" type="text" /><button class = "naming" onclick="add_name()" stlye="display: inline-block; font-family: 'Nanum Gothic', sans-serif; width: 100px; height: 30px;" >추가</button>
+      </div>
+      <div class="main_frame">
+         <div class="legend">이름</div>
+         <div class="legend">보유 코인/양도</div>
+         <div class="legend">베팅</div>
+         <div id="round">
+            <div><button class = "auction_1" id = 1 onclick = "award(this.id)"><span>1회</span></button></div>
+            <div><button class = "auction_2" id = 2 onclick = "award(this.id)"><span>2회</span></button></div>
+            <div><button class = "auction_3" id = 3 onclick = "award(this.id)"><span>3회</span></button></div>
+            <div><button class = "auction_4" id = 4 onclick = "award(this.id)"><span>4회</span></button></div>
+         </div>
+      </div>
+      <div class="mainplace">
+      </div>
+      <script>
+         color_list = ['#155799', '#F2994A', '#159957', '#C33764'];
+         var cnt = 0;
+         var current_player = 0;
+         var player_flag = 0;
+         asset_list = [];
+         betting_list = [];
+         donation_list = [];
+         const mainplace = document.querySelector('.mainplace');
+         function show(){
+            for(var i=0; i<cnt; i++){
+               coin_string = 'player_coin'+(i+1).toString();
+               betting_string = 'player_betting'+(i+1).toString();
+               let imsi1 = document.getElementById(coin_string);
+               let imsi2 = document.getElementById(betting_string);
+               imsi1.innerText = asset_list[i].toString();
+               imsi2.innerText = betting_list[i].toString();
+            }
+         }
+         function show_coin(){
+            for(var i=0; i<cnt; i++){
+               coin_string = 'player_coin'+(i+1).toString();
+               donation_string = 'player_donation'+(i+1).toString();
+               let imsi1 = document.getElementById(coin_string);
+               let imsi2 = document.getElementById(donation_string);
+               imsi1.innerText = asset_list[i].toString();
+               imsi2.innerText = donation_list[i].toString();
+            }
+         }
+         function add_name() {
+            const name=document.getElementById('name_writing').value;
+            add_player(name);
+            document.getElementById('name_writing').value = "";
+         }
+         function add_player(name){
+            cnt++;
+            asset_list.push(20);
+            donation_list.push(0);
+            betting_list.push(0);
+            cnt_string = cnt.toString();
+            const new_player = '<button onclick="player_select(this.id)" class="player_list" id="player_number'+cnt_string+'">'+name+'</button>';
+            const coin_asset = '<div class="coin_own"><div class="coin_wealth" id="player_coin'+cnt_string+'" style="margin-top: 5px;">20</div><button class="compute" onclick="coin_minus(this.id)" id="donation'+cnt_string+'">-</button><div id="player_donation'+cnt_string+'" style="line-height: 30px;">0</div><button class="compute" onclick="coin_plus(this.id)" id="donation'+cnt_string+'">+</button></div>';
+            const betting = '<div class="coin"><button class="compute" onclick="betting_minus(this.id)" id="betting'+cnt_string+'">-</button><div id="player_betting'+cnt_string+'" style="margin-top: 5px;">0</div><button class="compute" onclick="betting_plus(this.id)" id="betting'+cnt_string+'">+</button></div>';
+            const add_blank = '<div class="blank"></div>'
+            mainplace.insertAdjacentHTML('beforeend', new_player);
+            mainplace.insertAdjacentHTML('beforeend', coin_asset);
+            mainplace.insertAdjacentHTML('beforeend', betting);
+            for(var i=0; i<4; i++){
+               round = (i+1).toString();
+               mainplace.insertAdjacentHTML('beforeend', '<div class = "blank" id="'+cnt_string+'_'+round+'"></div>');
+            }
+         }
+         function coin_minus(id){
+            for(var i=1; i<=cnt; i++){
+               i_string = i.toString();
+               imsi = "donation"+i_string;
+               if(id == imsi){
+                  temp = "player_donation"+i_string;
+                  donation_list[i-1]--;
+                  ans = donation_list[i-1].toString();
+                  let x = document.getElementById(temp);
+                  x.innerText = ans;
+               }
+            }
+         }
+         function coin_plus(id){
+            for(var i=1; i<=cnt; i++){
+               i_string = i.toString();
+               imsi = "donation"+i_string;
+               if(id == imsi){
+                  temp = "player_donation"+i_string;
+                  donation_list[i-1]++;
+                  ans = donation_list[i-1].toString();
+                  let x = document.getElementById(temp);
+                  x.innerText = ans;
+               }
+            }
+         }
+         function betting_minus(id){
+            for(var i=1; i<=cnt; i++){
+               i_string = i.toString();
+               imsi = "betting"+i_string;
+               if(id == imsi){
+                  temp = "player_betting"+i_string;
+                  betting_list[i-1]--;
+                  ans = betting_list[i-1].toString();
+                  let x = document.getElementById(temp);
+                  x.innerText = ans;
+               }
+            }
+         }
+         function betting_plus(id){
+            for(var i=1; i<=cnt; i++){
+               i_string = i.toString();
+               imsi = "betting"+i_string;
+               if(id == imsi){
+                  temp = "player_betting"+i_string;
+                  betting_list[i-1]++;
+                  ans = betting_list[i-1].toString();
+                  let x = document.getElementById(temp);
+                  x.innerText = ans;
+               }
+            }
+         }
+         function player_select(id){
+            var ref = "player_number"+current_player.toString();
+            for(var i=1; i<=cnt; i++){
+               i_string = i.toString();
+               imsi = "player_number"+i_string;
+               if(id == imsi){
+                  if(ref == imsi){
+                     let x = document.getElementById(imsi);
+                     x.style.color="black";
+                     x.style.border="2px solid black";
+                     current_player = 0;
+                  }
+                  else{
+                     if(!player_flag){
+                        let x = document.getElementById(imsi);
+                        x.style.color = "green";
+                        x.style.border = "4px solid green";
+                        player_flag = 1;
+                        current_player = i;
+                     }
+                     else{
+                        var temp = "player_number"+current_player.toString();
+                        let x = document.getElementById(temp);
+                        x.style.color = "black";
+                        x.style.border = "2px solid black";
+                        player_flag = 0;
+                        var diff = donation_list[current_player-1];
+                        donation_list[current_player-1] = 0;
+                        asset_list[current_player-1] -= diff;
+                        asset_list[i-1] += diff;
+                        show_coin();
+                     }
+                  }
+               }
+            }
+         }
+         function award(id){
+            var max_loc = cnt+1;
+            var max_betting = -10;
+            for(var i=0; i<cnt; i++){
+               if(betting_list[i]>max_betting){
+                  max_betting = betting_list[i];
+                  max_loc = i;
+               }
+            }
+            for(var i=0; i<cnt; i++){
+               if(i == max_loc) asset_list[i] -= max_betting;
+               betting_list[i] = 0;
+            }
+            temp_id = (max_loc+1).toString()+'_'+id.toString();
+            let winner = document.getElementById(temp_id);
+            winner.innerText = max_betting;
+            winner.style.backgroundColor = color_list[id-1];
+            let round_button = document.getElementById(id);
+            round_button.disabled = 'disabled';
+            show();
+         }
+      </script>
+   </body>
+</html>
